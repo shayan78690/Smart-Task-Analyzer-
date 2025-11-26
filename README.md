@@ -67,18 +67,21 @@ Color-coded cards:
 
 task-analyzer/
 │── backend/
-│ ├── manage.py
-│ ├── task_analyzer/
-│ ├── analyzer/
-│ │ ├── scoring.py
-│ │ ├── views.py
-│ │ ├── urls.py
-│ │ └── serializers.py
+│   ├── manage.py
+│   ├── task_analyzer/
+│   ├── analyzer/
+│   │   ├── scoring.py
+│   │   ├── views.py
+│   │   ├── urls.py
+│   │   └── serializers.py
+│
 │── frontend/
-│ ├── index.html
-│ ├── styles.css
-│ ├── script.js
+│   ├── index.html
+│   ├── styles.css
+│   ├── script.js
+│
 │── README.md
+
 
 
 ---
