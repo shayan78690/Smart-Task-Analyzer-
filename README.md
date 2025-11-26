@@ -8,9 +8,9 @@ This project was created as a part of the **Singularium Internship Assignment 20
 
 ---
 
-# 🚀 Features
+## 🚀 Features
 
-### ✅ Smart Priority Score  
+### ✅ Smart Priority Score
 Each task is scored based on:
 - **Urgency** (due date)
 - **Importance**
@@ -18,112 +18,114 @@ Each task is scored based on:
 - **Dependencies**
 - **How many tasks depend on it**
 
-### ✅ Circular Dependency Detection  
+### ✅ Circular Dependency Detection
 The system identifies task cycles, e.g.:
 
-
+```
 Task A → Task B → Task C → Task A
-
+```
 
 Displayed clearly in the frontend UI.
 
-### ✅ Top 3 Task Suggestions  
+### ✅ Top 3 Task Suggestions
 Backend analyzes all tasks and suggests the top 3 tasks you should do **first**, with reasons.
 
-### ✅ Sorting Strategies (Frontend)  
+### ✅ Sorting Strategies (Frontend)
 Choose how tasks are ordered:
-- **Smart (Default)** → backend score  
-- **Fastest** → lowest hours first  
-- **Impact** → highest importance first  
-- **Deadline** → nearest due date first  
+- **Smart (Default)** → backend score
+- **Fastest** → lowest hours first
+- **Impact** → highest importance first
+- **Deadline** → nearest due date first
 
-### ✅ Bulk Task Import  
+### ✅ Bulk Task Import
 Paste a JSON array of tasks to load them instantly.
 
-### ✅ LocalStorage Persistence  
+### ✅ LocalStorage Persistence
 Tasks remain saved even after refreshing the page.
 
-### ✅ Beautiful & Intuitive UI  
+### ✅ Beautiful & Intuitive UI
 Color-coded cards:
-- 🔴 **High priority**  
-- 🟡 **Medium priority**  
+- 🔴 **High priority**
+- 🟡 **Medium priority**
 - 🟢 **Low priority**
 
 ---
 
-# 🏗 Tech Stack
+## 🏗 Tech Stack
 
-| Layer      | Technology |
-|------------|------------|
-| Backend    | Django (Python) |
+| Layer      | Technology              |
+|------------|-------------------------|
+| Backend    | Django (Python)         |
 | Frontend   | HTML, CSS, Vanilla JavaScript |
-| Database   | SQLite (default) |
-| Storage    | Browser LocalStorage |
-| API Format | JSON REST API |
+| Database   | SQLite (default)        |
+| Storage    | Browser LocalStorage    |
+| API Format | JSON REST API           |
 
 ---
 
-# 📂 Project Structure
+## 📂 Project Structure
 
+```
 task-analyzer/
-│── backend/
+│
+├── backend/
 │   ├── manage.py
 │   ├── task_analyzer/
-│   ├── analyzer/
-│   │   ├── scoring.py
-│   │   ├── views.py
-│   │   ├── urls.py
-│   │   └── serializers.py
+│   └── analyzer/
+│       ├── scoring.py
+│       ├── views.py
+│       ├── urls.py
+│       └── serializers.py
 │
-│── frontend/
+├── frontend/
 │   ├── index.html
 │   ├── styles.css
-│   ├── script.js
+│   └── script.js
 │
-│── README.md
-
-
+└── README.md
+```
 
 ---
 
-# ⚙️ Installation Instructions
+## ⚙️ Installation Instructions
 
-## 1️⃣ Clone the Repository
+### 1️⃣ Clone the Repository
 
+```bash
 git clone https://github.com/your-username/task-analyzer.git
-
 cd task-analyzer
+```
 
-## 2️⃣ Setup Backend (Django)
+### 2️⃣ Setup Backend (Django)
 
+```bash
 cd backend
 python -m venv venv
-venv\Scripts\activate (Windows)
-source venv/bin/activate (Linux/Mac)
+
+# Windows
+venv\Scripts\activate
+
+# Linux/Mac
+source venv/bin/activate
 
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
+```
 
+Backend runs at: **http://127.0.0.1:8000/**
 
-Backend runs at:
+### 3️⃣ Run Frontend
 
-http://127.0.0.1:8000/
-
-## 3️⃣ Run Frontend
-
-Simply open:
-frontend/index.html
-
-in your browser.  
-No server required.
+Simply open `frontend/index.html` in your browser. No server required.
 
 ---
 
-# 📡 API Documentation
+## 📡 API Documentation
 
-## 🔹 1. Analyze Tasks  
-**POST /api/tasks/analyze/**
+### 🔹 1. Analyze Tasks
+
+**POST** `/api/tasks/analyze/`
 
 **Input Example:**
 
@@ -138,8 +140,11 @@ No server required.
     "dependencies": []
   }
 ]
+```
 
-Response Example:
+**Response Example:**
+
+```json
 {
   "tasks": [
     {
@@ -151,12 +156,15 @@ Response Example:
   "cycles": [],
   "warnings": []
 }
-🔹 2. Suggest Top 3 Tasks
+```
 
-GET /api/tasks/suggest/
+### 🔹 2. Suggest Top 3 Tasks
 
-Response Example:
+**GET** `/api/tasks/suggest/`
 
+**Response Example:**
+
+```json
 {
   "top_3": [
     {
@@ -166,85 +174,80 @@ Response Example:
     }
   ]
 }
+```
 
+---
 
-🧮 Scoring Algorithm (Backend Logic)
+## 🧮 Scoring Algorithm (Backend Logic)
 
 A task's score is computed from 4 factors:
 
-Factor	Weight	Description
-Urgency	40%	Near due date → higher score
-Importance	30%	User-defined importance (1–10)
-Effort	20%	Less hours → higher score
-Dependency Influence	10%	Tasks with many dependents get higher priority
+| Factor                | Weight | Description                                      |
+|-----------------------|--------|--------------------------------------------------|
+| Urgency               | 40%    | Near due date → higher score                     |
+| Importance            | 30%    | User-defined importance (1–10)                   |
+| Effort                | 20%    | Less hours → higher score                        |
+| Dependency Influence  | 10%    | Tasks with many dependents get higher priority   |
 
-Example:
+**Example:**
 
+```
 urgency: 34.67 (due in 2 days)
 importance: 24 (rating 8)
 effort: 3.75 (3 hours)
 dependency: 3 (1 dependent)
+```
 
-🎨 UI Highlights
+---
 
-Dynamic task cards
+## 🎨 UI Highlights
 
-Color-coded priority visualization
+- Dynamic task cards
+- Color-coded priority visualization
+- Smart warnings for circular dependencies
+- Dropdown multi-select for dependencies
+- LocalStorage persistence
 
-Smart warnings for circular dependencies
+---
 
-Dropdown multi-select for dependencies
+## 🧪 How to Test
 
-LocalStorage persistence
+1. Add tasks manually
+2. Load bulk tasks
+3. Analyze tasks
+4. Try different sorting strategies
+5. Get top 3 suggestions
+6. Test circular dependencies
+7. Refresh page → tasks should remain saved
 
+---
 
+## 🏁 Future Enhancements
 
+- Dependency graph visualization
+- Export tasks to CSV/PDF
+- AI-based task description analysis
+- Team-level workspaces
+- Eisenhower Matrix View
 
-🧪 How to Test
+---
 
-Add tasks manually
+## 🧑‍💻 Author
 
-Load bulk tasks
-
-Analyze tasks
-
-Try different sorting strategies
-
-Get top 3 suggestions
-
-Test circular dependencies
-
-Refresh page → tasks should remain saved
-
-🏁 Future Enhancements
-
-Dependency graph visualization
-
-Export tasks to CSV/PDF
-
-AI-based task description analysis
-
-Team-level workspaces
-
-Eisenhower Matrix View
-
-🧑‍💻 Author
-
-Mo Shayan Ul Haque
-Internship Assignment — Singularium Technologies
+**Mo Shayan Ul Haque**  
+Internship Assignment — Singularium Technologies  
 Task Analyzer Project (2025)
 
+---
 
+## 💡 Design Decisions
 
-1. I chose a weighted scoring algorithm (Urgency 40%, Importance 30%, Effort 20%, Dependency Influence 10%) 
-   because it balances practical engineering trade-offs mentioned in the assignment.
+1. I chose a weighted scoring algorithm (Urgency 40%, Importance 30%, Effort 20%, Dependency Influence 10%) because it balances practical engineering trade-offs mentioned in the assignment.
 
 2. Circular dependency detection was implemented using DFS because it is optimal for directed graphs.
 
-3. Sorting strategies were implemented on the frontend to demonstrate critical thinking and provide 
-   user-controlled behavior.
+3. Sorting strategies were implemented on the frontend to demonstrate critical thinking and provide user-controlled behavior.
 
-4. LocalStorage was added to improve user experience even though it was not required, 
-   ensuring data persistence without a database.
+4. LocalStorage was added to improve user experience even though it was not required, ensuring data persistence without a database.
 
 5. The UI was intentionally kept simple and human-designed instead of over-styled to match assignment goals.
