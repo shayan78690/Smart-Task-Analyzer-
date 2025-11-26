@@ -235,3 +235,16 @@ Internship Assignment — Singularium Technologies
 Task Analyzer Project (2025)
 
 
+
+1. I chose a weighted scoring algorithm (Urgency 40%, Importance 30%, Effort 20%, Dependency Influence 10%) 
+   because it balances practical engineering trade-offs mentioned in the assignment.
+
+2. Circular dependency detection was implemented using DFS because it is optimal for directed graphs.
+
+3. Sorting strategies were implemented on the frontend to demonstrate critical thinking and provide 
+   user-controlled behavior.
+
+4. LocalStorage was added to improve user experience even though it was not required, 
+   ensuring data persistence without a database.
+
+5. The UI was intentionally kept simple and human-designed instead of over-styled to match assignment goals.
