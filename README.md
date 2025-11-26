@@ -197,16 +197,8 @@ Dropdown multi-select for dependencies
 
 LocalStorage persistence
 
-📸 Screenshots (You can add these)
-frontend/screenshots/
-- home.png
-- analyze.png
-- suggestion.png
 
 
-Add screenshots using:
-
-![Screenshot](frontend/screenshots/home.png)
 
 🧪 How to Test
 
@@ -242,21 +234,4 @@ Mo Shayan Ul Haque
 Internship Assignment — Singularium Technologies
 Task Analyzer Project (2025)
 
-🎉 End of README
-
----
-
-# 🎉 You're all set!
-
-README is complete.  
-Your project is **submission-ready** and **GitHub-ready**.
-
-If you want, next we can do:
-
-👉 **Step 15 — Final cleanup + GitHub push commands**  
-👉 Add screenshots  
-👉 Improve UI style  
-👉 Add animations or polish  
-
-Just tell me!
 
