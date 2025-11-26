@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Smart Task Analyzer</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+
+        <h1>Smart Task Analyzer</h1>
+
+        <!-- Input Form -->
+        <section id="task-input-section">
+            <h2>Add a Task</h2>
+
+            <form id="task-form">
+                <label>Title:</label>
+                <input type="text" id="title" required>
+
+                <label>Due Date:</label>
+                <input type="date" id="due_date">
+
+                <label>Estimated Hours:</label>
+                <input type="number" id="estimated_hours" min="0" step="0.5">
+
+                <label>Importance (1–10):</label>
+                <input type="number" id="importance" min="1" max="10">
+
+                <label>Dependencies:</label>
+                <select id="dependencies" multiple>
+                    <!-- JS will fill options here -->
+                </select>
+                <small>Select zero or more tasks this task depends on.</small>
+
+                <button type="submit">Add Task</button>
+            </form>
+
+            <h3>Bulk JSON Input</h3>
+            <textarea id="bulk-input" rows="5"
+                placeholder="Paste JSON array of tasks"></textarea>
+            <button id="load-bulk-btn">Load Bulk Tasks</button>
+
+            <label>Sorting Strategy:</label>
+            <select id="sort-strategy">
+                <option value="smart">Smart Balance (Default)</option>
+                <option value="fastest">Fastest Wins (Low Hours First)</option>
+                <option value="impact">High Impact (Importance First)</option>
+                <option value="deadline">Deadline Driven (Urgent First)</option>
+            </select>
+
+            <button id="analyze-btn">Analyze Tasks</button>
+            <button id="suggest-btn">Suggest Top 3</button>
+        </section>
+
+        <!-- Output Section -->
+        <section id="output-section">
+            <h2>Results</h2>
+            <div id="warning-box" style="display:none;"></div>
+            <div id="results"></div>
+        </section>
+
+        <script src="script.js"></script>
+    </body>
+</html>

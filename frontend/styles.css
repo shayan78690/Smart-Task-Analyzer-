@@ -1,0 +1,136 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    background: #f5f7fa;
+    padding: 40px;
+    color: #333;
+}
+
+/* Page Title */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 30px;
+    letter-spacing: 1px;
+}
+
+/* Sections */
+section {
+    background: #ffffff;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.1);
+}
+
+/* Headings */
+h2 {
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+label {
+    font-weight: 600;
+}
+
+input, textarea, button {
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* Textarea */
+textarea {
+    margin-top: 10px;
+}
+
+/* Buttons */
+button {
+    cursor: pointer;
+    border: none;
+    background-color: #0078ff;
+    color: white;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #005fcc;
+}
+
+/* Results */
+#results {
+    margin-top: 20px;
+}
+
+.task-card {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Priority Colors */
+.priority-high {
+    border-left: 5px solid #ff374a;
+}
+
+.priority-medium {
+    border-left: 5px solid #ffb300;
+}
+
+.priority-low {
+    border-left: 5px solid #4caf50;
+}
+
+/* Score display */
+.task-score {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+/* Explanation */
+.task-explanation {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+
+    section {
+        padding: 15px;
+    }
+}
+
+/* Warning Box */
+#warning-box {
+    background: #ffefef;
+    border-left: 6px solid #ff3b3b;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    color: #b30000;
+}
